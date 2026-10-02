@@ -1,0 +1,35 @@
+{
+  "run_timestamp":"2026-08-28T06:15:30.405677+00:00",
+  "summary":[
+    {
+      "taxi_type":"yellow",
+      "clean_row_count":101986947,
+      "non_zero_zone_hour_count":2983773,
+      "grid_row_count":5567184,
+      "result_row_count":5567184,
+      "pct_zero_demand":46.4043
+    },
+    {
+      "taxi_type":"green",
+      "clean_row_count":1392075,
+      "non_zero_zone_hour_count":410357,
+      "grid_row_count":5567184,
+      "result_row_count":5567184,
+      "pct_zero_demand":92.629
+    }
+  ],
+  "baseline_source_distribution":{
+    "zone_hour":694320,
+    "borough_dow_hour":12624,
+    "zone_dow_hour":10427424
+  },
+  "external_join_coverage":{
+    "total_rows":11134368,
+    "weather_matched_rows":11107542,
+    "pct_weather_matched":99.7591,
+    "event_present_rows":3000222,
+    "pct_event_present":26.9456,
+    "holiday_rows":328224,
+    "pct_holiday":2.9478
+  }
+}

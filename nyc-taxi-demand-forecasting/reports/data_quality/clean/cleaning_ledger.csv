@@ -1,0 +1,21 @@
+stage,dataset,rule,reason,records_removed,pct_of_original
+essential_missing,yellow,pickup_datetime IS NULL,pickup_datetime is essential for zone-hour pickup-demand analysis,0,0.0
+essential_missing,yellow,pu_location_id IS NULL,pu_location_id is essential for zone-hour pickup-demand analysis,0,0.0
+invalid,yellow,"pu_location_id outside valid TLC zone range [1, 265]",pu_location_id is essential and must reference a real/documented TLC taxi zone,0,0.0
+invalid,yellow,"do_location_id outside valid TLC zone range [1, 265]",dropoff location must reference a real/documented TLC taxi zone (per user cleaning policy),0,0.0
+invalid,yellow,trip_distance <= 0,negative distance is physically impossible; zero-distance trips dropped per user cleaning policy,2756007,2.531
+invalid,yellow,passenger_count < 0,a physically impossible passenger count,0,0.0
+invalid,yellow,fare_amount < 0,negative fares dropped per user cleaning policy,3384298,3.108
+invalid,yellow,trip_duration_minutes <= 0 or > 1440 (24h),"non-positive or >24h trips dropped per user cleaning policy (supersedes the narrower dropoff < pickup check, which this subsumes)",764283,0.7019
+invalid,yellow,exact duplicate business-column record,identical trip-defining values (all Clean business fields) already represented by another row,2,0.0
+study_period,yellow,"pickup_datetime outside study period [2024-01-01 00:00:00, 2026-06-01 00:00:00)",out of the established study period; not a data-validity issue,67,0.0001
+essential_missing,green,pickup_datetime IS NULL,pickup_datetime is essential for zone-hour pickup-demand analysis,0,0.0
+essential_missing,green,pu_location_id IS NULL,pu_location_id is essential for zone-hour pickup-demand analysis,0,0.0
+invalid,green,"pu_location_id outside valid TLC zone range [1, 265]",pu_location_id is essential and must reference a real/documented TLC taxi zone,0,0.0
+invalid,green,"do_location_id outside valid TLC zone range [1, 265]",dropoff location must reference a real/documented TLC taxi zone (per user cleaning policy),0,0.0
+invalid,green,trip_distance <= 0,negative distance is physically impossible; zero-distance trips dropped per user cleaning policy,66282,4.5318
+invalid,green,passenger_count < 0,a physically impossible passenger count,0,0.0
+invalid,green,fare_amount < 0,negative fares dropped per user cleaning policy,2686,0.1836
+invalid,green,trip_duration_minutes <= 0 or > 1440 (24h),"non-positive or >24h trips dropped per user cleaning policy (supersedes the narrower dropoff < pickup check, which this subsumes)",1552,0.1061
+invalid,green,exact duplicate business-column record,identical trip-defining values (all Clean business fields) already represented by another row,0,0.0
+study_period,green,"pickup_datetime outside study period [2024-01-01 00:00:00, 2026-06-01 00:00:00)",out of the established study period; not a data-validity issue,10,0.0007

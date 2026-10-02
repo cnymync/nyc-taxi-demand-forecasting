@@ -1,0 +1,45 @@
+{
+  "raw_row_count": 629145,
+  "clean_row_count": 612656,
+  "removal_ledger": [
+    {
+      "rule": "end_date_time < start_date_time",
+      "reason": "logically impossible event (mirrors the taxi dropoff < pickup rule)",
+      "records_removed": 16489,
+      "pct_of_original": 2.6209
+    }
+  ],
+  "kept_but_flagged": {
+    "missing_event_location": {
+      "count": 2,
+      "action": "retained -- cannot be geocoded to a taxi zone, but the event record itself is not invalid"
+    },
+    "missing_event_name": {
+      "count": 273,
+      "action": "retained -- not essential"
+    },
+    "duration_over_30_days": {
+      "count": 145,
+      "action": "retained -- plausible for season-long park/construction bookings, not evidence of invalidity"
+    },
+    "duration_over_90_days": {
+      "count": 28,
+      "action": "retained, flagged for review"
+    },
+    "duration_over_365_days": {
+      "count": 1,
+      "action": "retained, flagged for review -- worth a manual look, only 1 record"
+    },
+    "zero_or_negative_after_removal": {
+      "count": 4678,
+      "action": "should be 0 after the end<start removal rule above -- sanity check"
+    }
+  },
+  "duplicate_check": "0 exact-duplicate rows found on the full business-column set; event_id is a reusable recurring-booking identifier, not a unique row key, so it was not used for dedup.",
+  "geocoding": {
+    "unique_location_keys": 4325,
+    "events_geocoded": 581346,
+    "events_not_geocoded": 31310,
+    "pct_geocoded": 94.89
+  }
+}

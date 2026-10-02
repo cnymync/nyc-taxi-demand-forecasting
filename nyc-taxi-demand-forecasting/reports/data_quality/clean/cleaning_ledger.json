@@ -1,0 +1,162 @@
+[
+  {
+    "stage":"essential_missing",
+    "dataset":"yellow",
+    "rule":"pickup_datetime IS NULL",
+    "reason":"pickup_datetime is essential for zone-hour pickup-demand analysis",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"essential_missing",
+    "dataset":"yellow",
+    "rule":"pu_location_id IS NULL",
+    "reason":"pu_location_id is essential for zone-hour pickup-demand analysis",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"invalid",
+    "dataset":"yellow",
+    "rule":"pu_location_id outside valid TLC zone range [1, 265]",
+    "reason":"pu_location_id is essential and must reference a real\/documented TLC taxi zone",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"invalid",
+    "dataset":"yellow",
+    "rule":"do_location_id outside valid TLC zone range [1, 265]",
+    "reason":"dropoff location must reference a real\/documented TLC taxi zone (per user cleaning policy)",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"invalid",
+    "dataset":"yellow",
+    "rule":"trip_distance <= 0",
+    "reason":"negative distance is physically impossible; zero-distance trips dropped per user cleaning policy",
+    "records_removed":2756007,
+    "pct_of_original":2.531
+  },
+  {
+    "stage":"invalid",
+    "dataset":"yellow",
+    "rule":"passenger_count < 0",
+    "reason":"a physically impossible passenger count",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"invalid",
+    "dataset":"yellow",
+    "rule":"fare_amount < 0",
+    "reason":"negative fares dropped per user cleaning policy",
+    "records_removed":3384298,
+    "pct_of_original":3.108
+  },
+  {
+    "stage":"invalid",
+    "dataset":"yellow",
+    "rule":"trip_duration_minutes <= 0 or > 1440 (24h)",
+    "reason":"non-positive or >24h trips dropped per user cleaning policy (supersedes the narrower dropoff < pickup check, which this subsumes)",
+    "records_removed":764283,
+    "pct_of_original":0.7019
+  },
+  {
+    "stage":"invalid",
+    "dataset":"yellow",
+    "rule":"exact duplicate business-column record",
+    "reason":"identical trip-defining values (all Clean business fields) already represented by another row",
+    "records_removed":2,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"study_period",
+    "dataset":"yellow",
+    "rule":"pickup_datetime outside study period [2024-01-01 00:00:00, 2026-06-01 00:00:00)",
+    "reason":"out of the established study period; not a data-validity issue",
+    "records_removed":67,
+    "pct_of_original":0.0001
+  },
+  {
+    "stage":"essential_missing",
+    "dataset":"green",
+    "rule":"pickup_datetime IS NULL",
+    "reason":"pickup_datetime is essential for zone-hour pickup-demand analysis",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"essential_missing",
+    "dataset":"green",
+    "rule":"pu_location_id IS NULL",
+    "reason":"pu_location_id is essential for zone-hour pickup-demand analysis",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"invalid",
+    "dataset":"green",
+    "rule":"pu_location_id outside valid TLC zone range [1, 265]",
+    "reason":"pu_location_id is essential and must reference a real\/documented TLC taxi zone",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"invalid",
+    "dataset":"green",
+    "rule":"do_location_id outside valid TLC zone range [1, 265]",
+    "reason":"dropoff location must reference a real\/documented TLC taxi zone (per user cleaning policy)",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"invalid",
+    "dataset":"green",
+    "rule":"trip_distance <= 0",
+    "reason":"negative distance is physically impossible; zero-distance trips dropped per user cleaning policy",
+    "records_removed":66282,
+    "pct_of_original":4.5318
+  },
+  {
+    "stage":"invalid",
+    "dataset":"green",
+    "rule":"passenger_count < 0",
+    "reason":"a physically impossible passenger count",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"invalid",
+    "dataset":"green",
+    "rule":"fare_amount < 0",
+    "reason":"negative fares dropped per user cleaning policy",
+    "records_removed":2686,
+    "pct_of_original":0.1836
+  },
+  {
+    "stage":"invalid",
+    "dataset":"green",
+    "rule":"trip_duration_minutes <= 0 or > 1440 (24h)",
+    "reason":"non-positive or >24h trips dropped per user cleaning policy (supersedes the narrower dropoff < pickup check, which this subsumes)",
+    "records_removed":1552,
+    "pct_of_original":0.1061
+  },
+  {
+    "stage":"invalid",
+    "dataset":"green",
+    "rule":"exact duplicate business-column record",
+    "reason":"identical trip-defining values (all Clean business fields) already represented by another row",
+    "records_removed":0,
+    "pct_of_original":0.0
+  },
+  {
+    "stage":"study_period",
+    "dataset":"green",
+    "rule":"pickup_datetime outside study period [2024-01-01 00:00:00, 2026-06-01 00:00:00)",
+    "reason":"out of the established study period; not a data-validity issue",
+    "records_removed":10,
+    "pct_of_original":0.0007
+  }
+]

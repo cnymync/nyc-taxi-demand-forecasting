@@ -1,0 +1,4 @@
+taxi_type,raw_row_count,clean_row_count,rows_removed,pct_removed
+yellow,108891604,101986947,6904657,6.3409
+green,1462605,1392075,70530,4.8222
+combined,110354209,103379022,6975187,6.3207

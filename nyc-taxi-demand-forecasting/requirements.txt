@@ -1,0 +1,21 @@
+geopandas
+geopy
+ipython
+jupyterlab
+loguru
+matplotlib
+mkdocs
+notebook
+numpy
+pandas
+pip
+pyarrow>=18.0.0
+pyspark==4.2.0
+pytest
+python-dotenv
+requests
+ruff
+scikit-learn
+tqdm
+typer
+-e .

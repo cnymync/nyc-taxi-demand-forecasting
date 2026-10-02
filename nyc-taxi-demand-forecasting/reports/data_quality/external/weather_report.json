@@ -1,0 +1,60 @@
+{
+  "station": "LGA",
+  "study_period": [
+    "2024-01-01",
+    "2026-06-01"
+  ],
+  "raw_row_count": 21122,
+  "clean_row_count": 21118,
+  "duplicate_hour_rows_collapsed": 4,
+  "expected_hours_in_range": 21144,
+  "missing_hours_gap": 26,
+  "plausibility_checks_removed_kept": {
+    "negative_precipitation": {
+      "found": 0,
+      "action": "would remove if found"
+    },
+    "relative_humidity_out_of_0_100": {
+      "found": 0,
+      "action": "would remove if found"
+    },
+    "negative_wind_speed": {
+      "found": 0,
+      "action": "would remove if found"
+    },
+    "negative_visibility": {
+      "found": 0,
+      "action": "would remove if found"
+    },
+    "temperature_outside_minus40_to_130F": {
+      "found": 0,
+      "action": "would remove if found"
+    },
+    "dewpoint_exceeds_air_temperature": {
+      "found": 0,
+      "action": "would remove if found (physically impossible)"
+    }
+  },
+  "missingness": {
+    "gust": {
+      "null_count": 15609,
+      "note": "expected/legitimate: METAR only reports gust when notably above sustained wind, not a data quality issue"
+    },
+    "wxcodes": {
+      "null_count": 18526,
+      "note": "expected/legitimate: blank when no significant weather phenomenon present"
+    },
+    "tmpf_dwpf_relh_sknt_vsby": {
+      "null_count": 11,
+      "note": "true sensor/reporting gaps, left as NULL (not imputed, not dropped)"
+    }
+  },
+  "severity_distribution": {
+    "normal": 17142,
+    "mild": 3238,
+    "severe": 738
+  },
+  "kept": "All rows and columns. No physically-impossible values were found, so no rows were removed as outliers.",
+  "removed": "4 exact duplicate-hour reports (same clock hour reported twice; last kept).",
+  "not_imputed": "Missing hours (station gaps) and missing fields (sensor gaps) are left as gaps/NULL, not filled in."
+}
